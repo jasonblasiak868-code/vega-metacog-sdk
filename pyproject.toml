@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vega-metacog-sdk"
+version = "0.1.0"
+description = "Metacognitive recursive verification: evidence rungs, requirements ledger and completion gate, recursive and skeptic/advocate checking."
+requires-python = ">=3.10"
+dependencies = ["vega-custody-sdk"]
+license = {file = "LICENSE"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
