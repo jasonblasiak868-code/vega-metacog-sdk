@@ -2,6 +2,12 @@
 
 ![vega-metacog-sdk](assets/tile.svg)
 
+<!-- vega-install-order -->
+> **Build order: 2/2. This kit needs 1 other Vega kit installed first.** Install them in this order, then this one:
+> 1/2 `vega-custody-sdk`  
+> 2/2 `vega-metacog-sdk` (this kit)
+> Install each with `pip install --no-deps git+https://github.com/jasonblasiak868-code/<name>` in the order shown. Full steps: [INTEGRATION_GUIDE](https://github.com/jasonblasiak868-code/vega-umbrella-sdk/blob/main/INTEGRATION_GUIDE.md).
+
 Metacognitive recursive verification: evidence rungs that are never rounded up, a requirements ledger with a completion gate, recursive and skeptic/advocate checking, and confidence capped by the weakest step. The kit owns the **verify** concern (layer 12): it grades how much a claim has earned, enforces that work is complete only when every requirement is verified by an independent party, and runs checkers that check each other — never letting confidence exceed the shakiest link.
 
 > **Licensing.** Source-available, not open source. Free for personal use; free for registered small businesses (under US$1M revenue and valuation); everyone else needs a commercial license (see LICENSE; for a commercial license write to jasonblasiak.ai.mail@gmail.com). Patent pending (U.S. provisional application 64/178,949 and others). Draft licence text, not yet reviewed by an attorney.
