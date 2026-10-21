@@ -46,7 +46,7 @@ class A_Evidence(unittest.TestCase):
 class B_Ledger(unittest.TestCase):
     def setUp(self):
         self.dag, self.t = fx.new_dag()
-        self.L = requirements.Ledger(self.dag, "author")
+        self.L = requirements.Ledger(self.dag, "author", human_check=lambda rid, who: who == "owner")      # stands in for a check of the human key's signature
 
     def test_no_requirements_means_no_completion(self):
         self.assertEqual(self.L.gate()["status"], "REFUSED")

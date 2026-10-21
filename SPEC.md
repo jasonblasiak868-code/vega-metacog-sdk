@@ -70,7 +70,7 @@ Out of scope: persistence (the SDK records hashes to a caller-supplied custody D
 **Invariants:**
 - Requirements are fixed once judging starts (`frozen` flag set on first `verify`).
 - Author cannot verify own judged/human requirements (independence).
-- Human requirements only settle via `kind_used="human"` by a non-author verifier.
+- Human requirements settle only when `kind_used="human"`, the verifier is not the author, AND the Ledger's `human_check(requirement id, verifier id)` returns exactly True. With no `human_check` configured no human requirement can be settled (fail closed). Every state change is recorded BEFORE it takes effect, so a failed chain write leaves the item as it was.
 - Three failures without change → NEEDS_HUMAN (stalemate); NEEDS_HUMAN cannot be reopened by code.
 - Every state change appends to the custody DAG (hashes only, never requirement text).
 - `gate()` never guesses; missing items listed explicitly.
@@ -167,6 +167,6 @@ A third party can verify conformance by running the test suite:
 PYTHONPATH="src:../vega-custody-sdk/src" python -m pytest tests/ -v
 ```
 
-**What passing means:** All 46 tests in 3 files pass; the reference implementation behaves as specified.
+**What passing means:** All 57 tests in 4 files pass; the reference implementation behaves as specified.
 
 **What passing does NOT mean:** Production readiness; independent security review; cryptographic expert review; that the SDK fetches evidence or executes actions; that verifier independence is proven in the real world; that the completion gate is wired into any build step.

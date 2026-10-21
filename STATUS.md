@@ -6,7 +6,7 @@
 - requirements
 - recursive
 
-Tests: 46 tests in 3 files, all passing.
+Tests: 57 tests in 4 files, all passing.
 
 ## DESIGNED ONLY (not built)
 

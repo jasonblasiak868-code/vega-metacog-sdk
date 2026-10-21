@@ -14,7 +14,7 @@ Metacognitive recursive verification: evidence rungs that are never rounded up, 
 | Python | >=3.10 |
 | Package | `vega_metacog` (src layout) |
 | Dependencies | vega-custody-sdk |
-| Tests | 46 tests in 3 files, all passing |
+| Tests | 57 tests in 4 files, all passing |
 | Status | BUILT: evidence, requirements, recursive |
 
 ## End-to-end functions
@@ -32,7 +32,7 @@ Metacognitive recursive verification: evidence rungs that are never rounded up, 
 | `evidence.grade()` | `vega_metacog.evidence` | Grades a claim into a rung; refuses malformed sources, empty claims, excess sources (>200). |
 | `evidence.is_absence_claim()` | `vega_metacog.evidence` | Detects absence phrasing; forces ABSENCE_UNPROBED unless a probe receipt is provided. |
 | `requirements.Ledger.register()` | `vega_metacog.requirements` | Registers a requirement (programmatic/judged/human); freezes the list on first verify. |
-| `requirements.Ledger.verify()` | `vega_metacog.requirements` | Records a verdict (exactly True/False); enforces author independence for judged/human kinds; 3 failures → NEEDS_HUMAN. |
+| `requirements.Ledger.verify()` | `vega_metacog.requirements` | Records a verdict (exactly True/False); enforces author independence for judged/human kinds; 3 failures → NEEDS_HUMAN. | A `human` item is settled only when the Ledger's `human_check(requirement id, verifier id)` returns exactly True; with none configured it cannot be settled. The change is recorded BEFORE it takes effect.
 | `requirements.Ledger.reopen()` | `vega_metacog.requirements` | Reopens only FAILED items; NEEDS_HUMAN items require human decision. |
 | `requirements.Ledger.gate()` | `vega_metacog.requirements` | Returns COMPLETE only if zero PENDING/FAILED/NEEDS_HUMAN; otherwise INCOMPLETE with missing list. |
 | `recursive.recursive_verify()` | `vega_metacog.recursive` | Runs 2–12 verifiers across families; each fn(claim, prior) returns {verdict, confidence}; crashes/wrong shapes abstain. |
@@ -93,7 +93,7 @@ The umbrella resolves inter-SDK wiring; this SDK does not import any family SDK 
 
 ## Tests
 
-46 tests in 3 files (`tests/test_metacog.py`, `tests/redteam_1_evidence_and_ledger.py`, `tests/redteam_2_recursive.py`), all passing.
+57 tests in 4 files (`tests/test_metacog.py`, `tests/redteam_1_evidence_and_ledger.py`, `tests/redteam_2_recursive.py`), all passing.
 
 Run:
 ```bash
